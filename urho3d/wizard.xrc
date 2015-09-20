@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<resource xmlns="http://www.wxwindows.org/wxxrc" version="2.3.0.1">
+	<object class="wxPanel" name="pnlProjectType">
+		<style>wxTAB_TRAVERSAL</style>
+		<object class="wxBoxSizer">
+			<orient>wxVERTICAL</orient>
+			<object class="sizeritem">
+				<option>0</option>
+				<flag>wxALL</flag>
+				<border>8</border>
+				<object class="wxStaticText" name="m_staticText1">
+					<label>Select the Graphic API you intend to use\n\nAlso select the startup application template for the project</label>
+				</object>
+			</object>
+			<object class="sizeritem">
+				<option>0</option>
+				<flag>wxALL|wxEXPAND</flag>
+				<border>8</border>
+				<object class="wxRadioBox" name="rbGraphics">
+					<style>wxRA_SPECIFY_COLS</style>
+					<label>Graphic API</label>
+					<selection>0</selection>
+					<content>
+						<item>OpenGL</item>
+						<item>Direct3D9</item>
+						<item>Direct3D11</item>
+					</content>
+					<dimension>1</dimension>
+				</object>
+			</object>
+			<object class="sizeritem">
+				<option>0</option>
+				<flag>wxALL|wxEXPAND</flag>
+				<border>8</border>
+				<object class="wxRadioBox" name="rbTemplates">
+					<style>wxRA_SPECIFY_COLS</style>
+					<label>Application Template Type</label>
+					<selection>0</selection>
+					<content>
+						<item>Bare</item>
+						<item>Navigating Camera</item>
+						<item>Orbiting Camera</item>
+					</content>
+					<dimension>1</dimension>
+				</object>
+			</object>
+		</object>
+	</object>
+</resource>
