@@ -81,15 +81,15 @@ function OnLeave_pnlProjectType(fwd)
 		
 		if(selection == 1)
 		{
-			TemplateFilePath = _T("urho/navi_cam_project/");
+			TemplateFilePath = _T("urho3d/navi_cam_project/");
 		}
 		else if(selection == 2)
 		{
-			TemplateFilePath = _T("urho/orbit_cam_project/");
+			TemplateFilePath = _T("urho3d/orbit_cam_project/");
 		}
 		else
 		{
-			TemplateFilePath = _T("urho/bare_project/");
+			TemplateFilePath = _T("urho3d/bare_project/");
 		}
         
         GetConfigManager().Write(_T("/urho3d_project_wizard/graphic_api"), ProjectGraphicAPI);
