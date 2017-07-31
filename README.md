@@ -1,6 +1,6 @@
 # Urho3D_CodeBlocks_Wizard
 
-A template wizard for setting up Urho3D project on CodeBlocks.
+An un-official template wizard for setting up Urho3D project on CodeBlocks.
 
 Currently provides project setup for OpenGL, Direct3D9 and Direct3D11 using Mingw-w64 on Windows platform
 
