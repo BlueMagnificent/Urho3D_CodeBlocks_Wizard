@@ -18,7 +18,7 @@ void [CLASS_PREFIX]::Setup()
 
 void [CLASS_PREFIX]::Start()
 {
-    SubscribeToEvent(Urho3D::E_KEYDOWN, HANDLER([CLASS_PREFIX], HandleKeyDown));
+    SubscribeToEvent(Urho3D::E_KEYDOWN, URHO3D_HANDLER([CLASS_PREFIX], HandleKeyDown));
 }
 
 void [CLASS_PREFIX]::Stop()
@@ -30,9 +30,9 @@ void [CLASS_PREFIX]::HandleKeyDown(Urho3D::StringHash eventType, Urho3D::Variant
     using namespace Urho3D::KeyDown;
    // Check for pressing ESC. Note the engine_ member variable for convenience access to the Engine object
    int key = eventData[P_KEY].GetInt();
-   if (key == Urho3D::KEY_ESC)
+   if (key == Urho3D::KEY_ESCAPE)
    engine_->Exit();
 }
 
 
-DEFINE_APPLICATION_MAIN([CLASS_PREFIX])
+URHO3D_DEFINE_APPLICATION_MAIN([CLASS_PREFIX])

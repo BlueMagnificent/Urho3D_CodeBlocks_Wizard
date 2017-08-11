@@ -7,7 +7,7 @@ using namespace Urho3D;
 class [CLASS_PREFIX] : public Application
 {
 
-	OBJECT([CLASS_PREFIX])
+	URHO3D_OBJECT([CLASS_PREFIX], Application)
 	
 public:
     [CLASS_PREFIX](Urho3D::Context* context);

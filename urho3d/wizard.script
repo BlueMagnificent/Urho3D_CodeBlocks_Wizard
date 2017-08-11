@@ -177,7 +177,7 @@ function SetupProject(project)
     project.AddIncludeDir(UrhoPath + _T("/include"));
 	project.AddIncludeDir(UrhoPath + _T("/include/Urho3D/ThirdParty"));
 
-	project.AddLibDir(UrhoPath + _T("/lib/Urho3D"));
+	project.AddLibDir(UrhoPath + _T("/lib"));
 
     if (PLATFORM == PLATFORM_MSW)
     {
