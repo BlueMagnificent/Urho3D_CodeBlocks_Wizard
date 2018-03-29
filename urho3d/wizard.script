@@ -197,6 +197,7 @@ function SetupProject(project)
 		project.AddCompilerOption(_T("-DURHO3D_STATIC_DEFINE"));
 		project.AddCompilerOption(_T("-Wno-invalid-offsetof"));
 		project.AddCompilerOption(_T("-ffast-math"));
+		project.AddCompilerOption(_T("-std=gnu++11"));
 		project.AddCompilerOption(_T("-m32"));
 		project.AddCompilerOption(_T("-msse2"));
 		project.AddCompilerOption(_T("-static"));
