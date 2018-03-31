@@ -176,6 +176,7 @@ function SetupProject(project)
     // set compiler/linker search paths
     project.AddIncludeDir(UrhoPath + _T("/include"));
 	project.AddIncludeDir(UrhoPath + _T("/include/Urho3D/ThirdParty"));
+	project.AddIncludeDir(UrhoPath + _T("/include/Urho3D/ThirdParty/Bullet"));
 
 	project.AddLibDir(UrhoPath + _T("/lib"));
 
