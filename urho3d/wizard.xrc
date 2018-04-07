@@ -9,7 +9,22 @@
 				<flag>wxALL</flag>
 				<border>8</border>
 				<object class="wxStaticText" name="m_staticText1">
-					<label>Select the Graphic API you intend to use\n\nAlso select the startup application template for the project</label>
+					<label>Select your Urho3D Lib build architecture, the Graphic API\nand startup application template for the project</label>
+				</object>
+			</object>
+			<object class="sizeritem">
+				<option>0</option>
+				<flag>wxALL|wxEXPAND</flag>
+				<border>8</border>
+				<object class="wxRadioBox" name="rbUrho3DLibBuild">
+					<style>wxRA_SPECIFY_COLS</style>
+					<label>Urho3D Lib Build</label>
+					<selection>0</selection>
+					<content>
+						<item>x86</item>
+						<item>x64</item>
+					</content>
+					<dimension>1</dimension>
 				</object>
 			</object>
 			<object class="sizeritem">

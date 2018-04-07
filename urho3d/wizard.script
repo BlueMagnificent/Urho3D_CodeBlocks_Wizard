@@ -9,6 +9,7 @@ UrhoPath <- _T("");
 TemplateFilePath <- _T("");
 GraphicAPIType <- _T("");
 ProjectGraphicAPI <- 0;
+Urho3DLibBuild <- 0;
 
 function BeginWizard()
 {
@@ -62,7 +63,10 @@ function OnEnter_pnlProjectType(fwd)
    if (fwd)
     {
         ProjectGraphicAPI = ConfigManager.Read(_T("/urho3d_project_wizard/graphic_api"), 0);
+		Urho3DLibBuild = ConfigManager.Read(_T("/urho3d_project_wizard/urho3d_lib_build"), 0);
         local selection = ConfigManager.Read(_T("/urho3d_project_wizard/code_template"), 0);
+		
+		Wizard.SetRadioboxSelection(_T("rbUrho3DLibBuild"), Urho3DLibBuild);
         Wizard.SetRadioboxSelection(_T("rbGraphics"), ProjectGraphicAPI);
         Wizard.SetRadioboxSelection(_T("rbTemplates"), selection);
     }
@@ -75,8 +79,8 @@ function OnLeave_pnlProjectType(fwd)
 	
 	if (fwd)
     {
+		Urho3DLibBuild = Wizard.GetRadioboxSelection(_T("rbUrho3DLibBuild"));
         ProjectGraphicAPI = Wizard.GetRadioboxSelection(_T("rbGraphics"));
-		
         local selection = Wizard.GetRadioboxSelection(_T("rbTemplates"));
 		
 		if(selection == 1)
@@ -92,6 +96,7 @@ function OnLeave_pnlProjectType(fwd)
 			TemplateFilePath = _T("urho3d/bare_project/");
 		}
         
+        GetConfigManager().Write(_T("/urho3d_project_wizard/urho3d_lib_build"), Urho3DLibBuild);
         GetConfigManager().Write(_T("/urho3d_project_wizard/graphic_api"), ProjectGraphicAPI);
         GetConfigManager().Write(_T("/urho3d_project_wizard/code_template"), selection);
     }
@@ -199,11 +204,21 @@ function SetupProject(project)
 		project.AddCompilerOption(_T("-Wno-invalid-offsetof"));
 		project.AddCompilerOption(_T("-ffast-math"));
 		project.AddCompilerOption(_T("-std=gnu++11"));
-		project.AddCompilerOption(_T("-m32"));
-		project.AddCompilerOption(_T("-msse2"));
+		project.AddCompilerOption(_T("-msse3"));
 		project.AddCompilerOption(_T("-static"));
 		project.AddCompilerOption(_T("-static-libstdc++"));
 		project.AddCompilerOption(_T("-static-libgcc"));
+		
+		
+		//Specify the respective Urho3D lib build option (-m32 for x86 and -m64 for x64)
+		if(Urho3DLibBuild == 0) //If x86
+		{
+			project.AddCompilerOption(_T("-m32"));
+		}
+		else if(Urho3DLibBuild == 0) //If x64
+		{
+			project.AddCompilerOption(_T("-m64"));
+		}
 
     }
 
