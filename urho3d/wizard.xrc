@@ -9,7 +9,7 @@
 				<flag>wxALL</flag>
 				<border>8</border>
 				<object class="wxStaticText" name="m_staticText1">
-					<label>Select your Urho3D Lib build architecture, the Graphic API\nand startup application template for the project</label>
+					<label>Select your build architecture, the Graphic API\nand startup application template for the project</label>
 				</object>
 			</object>
 			<object class="sizeritem">
@@ -18,7 +18,7 @@
 				<border>8</border>
 				<object class="wxRadioBox" name="rbUrho3DLibBuild">
 					<style>wxRA_SPECIFY_COLS</style>
-					<label>Urho3D Lib Build</label>
+					<label>Build Arch</label>
 					<selection>0</selection>
 					<content>
 						<item>x86</item>
