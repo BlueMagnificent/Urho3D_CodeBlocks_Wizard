@@ -189,25 +189,28 @@ function SetupProject(project)
     {
 
 		//add compiler options
-		project.AddCompilerOption(_T("-mthreads"));
-        project.AddCompilerOption(_T("-fmessage-length=0"));
-        project.AddCompilerOption(_T("-fexceptions"));
-        project.AddCompilerOption(_T("-fident"));
-        project.AddCompilerOption(_T("-DWIN32"));
-        project.AddCompilerOption(_T("-D_WINDOWS"));
-		project.AddCompilerOption(_T("-DURHO3D_SSE"));
-		project.AddCompilerOption(_T("-DURHO3D_FILEWATCHER"));
-		project.AddCompilerOption(_T("-DURHO3D_PROFILING"));
-		project.AddCompilerOption(_T("-DURHO3D_LOGGING"));
-		project.AddCompilerOption(_T("-DURHO3D_ANGELSCRIPT"));
 		project.AddCompilerOption(_T("-DURHO3D_STATIC_DEFINE"));
+		project.AddCompilerOption(_T("-DURHO3D_ANGELSCRIPT"));
+		project.AddCompilerOption(_T("-DURHO3D_FILEWATCHER"));
+		project.AddCompilerOption(_T("-DURHO3D_IK"));
+		project.AddCompilerOption(_T("-DURHO3D_LOGGING"));
+		project.AddCompilerOption(_T("-DURHO3D_LUA"));
+		project.AddCompilerOption(_T("-DURHO3D_NAVIGATION"));
+		project.AddCompilerOption(_T("-DURHO3D_NETWORK"));
+		project.AddCompilerOption(_T("-DURHO3D_PHYSICS"));
+		project.AddCompilerOption(_T("-DURHO3D_PROFILING"));
+		project.AddCompilerOption(_T("-DURHO3D_THREADING"));
+		project.AddCompilerOption(_T("-DURHO3D_URHO2D"));
+		project.AddCompilerOption(_T("-DURHO3D_WEBP"));
 		project.AddCompilerOption(_T("-Wno-invalid-offsetof"));
-		project.AddCompilerOption(_T("-ffast-math"));
-		project.AddCompilerOption(_T("-std=gnu++11"));
-		project.AddCompilerOption(_T("-msse3"));
+		project.AddCompilerOption(_T("-march=native"));
+		project.AddCompilerOption(_T("-msse"));
+		project.AddCompilerOption(_T("-msse2"));
 		project.AddCompilerOption(_T("-static"));
-		project.AddCompilerOption(_T("-static-libstdc++"));
 		project.AddCompilerOption(_T("-static-libgcc"));
+		project.AddCompilerOption(_T("-static-libstdc++"));
+		project.AddCompilerOption(_T("-fno-keep-inline-dllexport"));
+		project.AddCompilerOption(_T("-mstackrealign"));
 		
 		
 		//Specify the respective Urho3D lib build option (-m32 for x86 and -m64 for x64)
@@ -277,16 +280,19 @@ function SetupTarget(target, is_debug)
 		{
 			target.AddLinkLib(_T("Urho3D"));
 		}
-		
+				
 		target.AddLinkLib(_T("user32"));
 		target.AddLinkLib(_T("gdi32"));
 		target.AddLinkLib(_T("winmm"));
 		target.AddLinkLib(_T("imm32"));
 		target.AddLinkLib(_T("ole32"));
 		target.AddLinkLib(_T("oleaut32"));
+		target.AddLinkLib(_T("setupapi"));
 		target.AddLinkLib(_T("version"));
 		target.AddLinkLib(_T("uuid"));
 		target.AddLinkLib(_T("ws2_32"));
+		target.AddLinkLib(_T("iphlpapi"));
+		target.AddLinkLib(_T("winmm"));
 			
 		//Specify the Graphic API lib to include
 		if(ProjectGraphicAPI == 0) //If OpenGL
