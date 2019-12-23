@@ -2,6 +2,7 @@
 
 #include <Urho3D/Engine/Application.h>
 #include <Urho3D/Engine/Engine.h>
+#include <Urho3D/Engine/EngineDefs.h>
 #include <Urho3D/Input/InputEvents.h>
 #include <Urho3D/Input/Input.h>
 #include <Urho3D/Graphics/Renderer.h>
@@ -28,8 +29,8 @@
 
 void [CLASS_PREFIX]::Setup()
 {
-	engineParameters_["ResourcePaths"] = "CoreData;Data";
-    engineParameters_["LogName"]   = "[CLASS_PREFIX].log";
+	engineParameters_[EP_RESOURCE_PATHS] = "CoreData;Data";
+    engineParameters_[EP_LOG_NAME]   = "[CLASS_PREFIX].log";
 }
 
 void [CLASS_PREFIX]::Start()
