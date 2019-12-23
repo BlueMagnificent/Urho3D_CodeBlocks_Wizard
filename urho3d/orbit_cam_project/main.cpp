@@ -13,6 +13,7 @@
 #include <Urho3D/Engine/Application.h>
 #include <Urho3D/Engine/Engine.h>
 #include <Urho3D/Engine/EngineDefs.h>
+#include <Urho3D/IO/FileSystem.h>
 #include <Urho3D/Input/InputEvents.h>
 #include <Urho3D/Scene/Scene.h>
 #include <Urho3D/Scene/Node.h>
@@ -30,6 +31,9 @@
 
 void [CLASS_PREFIX]::Setup()
 {
+    if (!engineParameters_.Contains(EP_RESOURCE_PREFIX_PATHS))
+       engineParameters_[EP_RESOURCE_PREFIX_PATHS] = GetSubsystem<FileSystem>()->GetCurrentDir();
+       
     engineParameters_[EP_RESOURCE_PATHS] = "CoreData;Data";
     engineParameters_[EP_LOG_NAME]   = "[CLASS_PREFIX].log";
     engineParameters_[EP_FULL_SCREEN]  = false;
